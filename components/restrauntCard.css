@@ -1,0 +1,24 @@
+.card-container{
+    margin: 30px 80px;
+}
+.res-image{
+    height: 700px;
+    width: 1043px;
+    border-radius: 50px;
+}
+.description{
+    color: black;
+    font-family: "Basis Grotesque Pro";
+    font-size: 60px;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+.res-name{
+    font-weight: 700;
+}
+.res-cuisines{
+    color: rgb(80, 80, 80);
+}
+.res-address{
+    color: rgb(80, 80, 80);
+}

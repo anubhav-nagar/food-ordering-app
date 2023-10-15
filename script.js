@@ -1,25 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client'
-import logo from "./images/logo-3.png"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Header from "./components/Header";
+import RestrauntCard from "./components/RestrauntCard";
+import restraunts from './data/data.js'
+import './style.css'
 
-
-const Header = () => {
-    return(
-        <>
-            <div id="header">
-                <img src={logo} alt="logo" className="logo-img" />
-                
-                    <ul className="nav-items">
-                        <li className='item'>Search</li>
-                        <li className='item'>Offers</li>
-                        <li className='item'>Help</li>
-                        <li className='item'>SignIn</li>
-                        <li className='item'>Cart</li>
-                    </ul>
-            </div>
-        </>
-    )
-}
+const App = () => {
+  return (
+    <>
+      <Header />
+      <div className="cards-container">
+        {restraunts.map((restraunt) => {
+            return <RestrauntCard key={restraunt.info.id} name={restraunt.info.name} cuisines={restraunt.info.cuisines} ratings={restraunt.info.avgRating} imgId={restraunt.info.cloudinaryImageId} area={restraunt.info.areaName}/>
+        })}
+      </div>
+    </>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Header />)
+root.render(<App />);

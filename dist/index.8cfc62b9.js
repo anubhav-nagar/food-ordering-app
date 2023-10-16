@@ -2955,17 +2955,29 @@ var _restrauntCardDefault = parcelHelpers.interopDefault(_restrauntCard);
 var _dataJs = require("./data/data.js");
 var _dataJsDefault = parcelHelpers.interopDefault(_dataJs);
 var _styleCss = require("./style.css");
+var _s = $RefreshSig$();
+function filterList(searchValue) {
+    const filteredData = (0, _dataJsDefault.default).filter((res)=>{
+        if (res.info.name.includes(searchValue)) return res;
+    });
+    return filteredData;
+}
 const App = ()=>{
+    _s();
+    const [restrauntList, setRestrauntList] = (0, _react.useState)((0, _dataJsDefault.default));
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {
+                filterList: filterList,
+                setList: setRestrauntList
+            }, void 0, false, {
                 fileName: "script.js",
-                lineNumber: 11,
+                lineNumber: 26,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "cards-container",
-                children: (0, _dataJsDefault.default).map((restraunt)=>{
+                children: restrauntList.map((restraunt)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restrauntCardDefault.default), {
                         name: restraunt.info.name,
                         cuisines: restraunt.info.cuisines,
@@ -2974,23 +2986,24 @@ const App = ()=>{
                         area: restraunt.info.areaName
                     }, restraunt.info.id, false, {
                         fileName: "script.js",
-                        lineNumber: 14,
+                        lineNumber: 29,
                         columnNumber: 20
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "script.js",
-                lineNumber: 12,
+                lineNumber: 27,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
+_s(App, "MAs9OMjPo9aWILbuJdk2BYdPgs8=");
 _c = App;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "script.js",
-    lineNumber: 22,
+    lineNumber: 37,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -27372,7 +27385,9 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _logo3Png = require("../images/logo-3.png");
 var _logo3PngDefault = parcelHelpers.interopDefault(_logo3Png);
 var _headerCss = require("./header.css");
-function Header() {
+var _searchBar = require("./SearchBar");
+var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
+function Header({ ...props }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             id: "header",
@@ -27383,62 +27398,71 @@ function Header() {
                     className: "logo-img"
                 }, void 0, false, {
                     fileName: "components/Header.jsx",
-                    lineNumber: 9,
+                    lineNumber: 10,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                    className: "nav-items",
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "nav",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "item",
-                            children: "Search"
-                        }, void 0, false, {
-                            fileName: "components/Header.jsx",
-                            lineNumber: 11,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "item",
-                            children: "Offers"
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                            filterList: props.filterList,
+                            setList: props.setList
                         }, void 0, false, {
                             fileName: "components/Header.jsx",
                             lineNumber: 12,
                             columnNumber: 11
                         }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "item",
-                            children: "Help"
-                        }, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                            className: "nav-items",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "item",
+                                    children: "Offers"
+                                }, void 0, false, {
+                                    fileName: "components/Header.jsx",
+                                    lineNumber: 14,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "item",
+                                    children: "Help"
+                                }, void 0, false, {
+                                    fileName: "components/Header.jsx",
+                                    lineNumber: 15,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "item",
+                                    children: "SignIn"
+                                }, void 0, false, {
+                                    fileName: "components/Header.jsx",
+                                    lineNumber: 16,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    className: "item",
+                                    children: "Cart"
+                                }, void 0, false, {
+                                    fileName: "components/Header.jsx",
+                                    lineNumber: 17,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "components/Header.jsx",
                             lineNumber: 13,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "item",
-                            children: "SignIn"
-                        }, void 0, false, {
-                            fileName: "components/Header.jsx",
-                            lineNumber: 14,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "item",
-                            children: "Cart"
-                        }, void 0, false, {
-                            fileName: "components/Header.jsx",
-                            lineNumber: 15,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "components/Header.jsx",
-                    lineNumber: 10,
+                    lineNumber: 11,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "components/Header.jsx",
-            lineNumber: 8,
+            lineNumber: 9,
             columnNumber: 7
         }, this)
     }, void 0, false);
@@ -27452,7 +27476,7 @@ $RefreshReg$(_c, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/logo-3.png":"ekJfP","./header.css":"50BJa"}],"ekJfP":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/logo-3.png":"ekJfP","./header.css":"50BJa","./SearchBar":"4HJPW"}],"ekJfP":[function(require,module,exports) {
 module.exports = require("aaad1be59c2521d3").getBundleURL("fqV6O") + "logo-3.0be669d9.png" + "?" + Date.now();
 
 },{"aaad1be59c2521d3":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -27490,7 +27514,78 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"50BJa":[function() {},{}],"fZxvE":[function(require,module,exports) {
+},{}],"50BJa":[function() {},{}],"4HJPW":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e8d4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e8d4.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>SearchBar);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _searchBarCss = require("./searchBar.css");
+var _s = $RefreshSig$();
+function SearchBar({ ...props }) {
+    _s();
+    const [searchText, setSearchText] = (0, _react.useState)("");
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "search-bar",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    type: "text",
+                    placeholder: "Search",
+                    value: searchText,
+                    onChange: (e)=>{
+                        setSearchText(e.target.value);
+                    },
+                    className: "search-box"
+                }, void 0, false, {
+                    fileName: "components/SearchBar.jsx",
+                    lineNumber: 12,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "search-btn",
+                    onClick: ()=>{
+                        const data = props.filterList(searchText);
+                        props.setList(data);
+                    },
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                        className: "fa fa-search"
+                    }, void 0, false, {
+                        fileName: "components/SearchBar.jsx",
+                        lineNumber: 20,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "components/SearchBar.jsx",
+                    lineNumber: 15,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "components/SearchBar.jsx",
+            lineNumber: 11,
+            columnNumber: 5
+        }, this)
+    }, void 0, false);
+}
+_s(SearchBar, "OAGvOw28fBJQW7HtXCjc9nvla2M=");
+_c = SearchBar;
+var _c;
+$RefreshReg$(_c, "SearchBar");
+
+  $parcel$ReactRefreshHelpers$e8d4.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./searchBar.css":"s7MCm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"s7MCm":[function() {},{}],"fZxvE":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ca8a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27508,7 +27603,6 @@ function RestrauntCard({ ...props }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "card-container",
         children: [
-            console.log(props),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 src: `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${props.imgId}`,
                 alt: "restraunt image",

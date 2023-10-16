@@ -12,5 +12,5 @@
 .cards-container{
     display: flex;
     flex-wrap: wrap;
-    padding: 0 600px;
+    padding: 0 110px;
 }

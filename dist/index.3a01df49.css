@@ -6,11 +6,12 @@
 #root {
   color: #a9e4d0;
   background-color: #f8f5f5;
-  min-height: 100vh;
+  max-width: 100vh;
 }
 
 .cards-container {
   flex-wrap: wrap;
+  padding: 0 600px;
   display: flex;
 }
 
@@ -43,22 +44,44 @@
   font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
 }
 
+.search-box {
+  border-start-start-radius: 90px;
+  border-bottom-left-radius: 90px;
+  padding: 35px;
+  font-size: 50px;
+}
+
+.search-box:focus {
+  border: 1px solid #000;
+  outline: none;
+}
+
+.search-btn {
+  border-end-end-radius: 90px;
+  cursor: pointer;
+  border: none;
+  border-top-right-radius: 90px;
+  margin-left: 1px;
+  padding: 37px 50px 40px 35px;
+  font-size: 45px;
+}
+
 .card-container {
   margin: 30px 80px;
 }
 
 .res-image {
   border-radius: 50px;
-  width: 1043px;
-  height: 700px;
+  width: 260px;
+  height: 170px;
 }
 
 .description {
   color: #000;
-  margin-top: 25px;
-  margin-left: 50px;
+  margin-top: 8px;
+  margin-left: 12px;
   font-family: Basis Grotesque Pro;
-  font-size: 60px;
+  font-size: 15px;
 }
 
 .res-name {

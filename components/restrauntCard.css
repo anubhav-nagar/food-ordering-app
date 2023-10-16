@@ -1,17 +1,17 @@
 .card-container{
-    margin: 30px 80px;
+    margin: 10px 30px;
 }
 .res-image{
-    height: 700px;
-    width: 1043px;
-    border-radius: 50px;
+    height: 170px;
+    width: 260px;
+    border-radius: 20px;
 }
 .description{
     color: black;
     font-family: "Basis Grotesque Pro";
-    font-size: 60px;
-    margin-top: 25px;
-    margin-left: 50px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left: 12px;
 }
 .res-name{
     font-weight: 700;

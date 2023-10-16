@@ -2,47 +2,75 @@
   background-color: #2f2f2f;
   justify-content: space-between;
   align-items: center;
-  height: 280px;
-  margin-bottom: 150px;
-  padding: 20px 120px;
+  height: 70px;
+  margin-bottom: 40px;
+  padding: 5px 30px;
   display: flex;
 }
 
 .logo-img {
-  width: 460px;
+  width: 120px;
   position: relative;
-  top: 90px;
+  top: 20px;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
 }
 
 .nav-items {
-  margin-right: 30px;
-  font-size: 60px;
+  margin-right: 10px;
+  font-size: 15px;
   list-style: none;
   display: flex;
 }
 
 .item {
   cursor: pointer;
-  margin-left: 200px;
+  margin-left: 50px;
   font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
 }
 
+.search-box {
+  border-start-start-radius: 20px;
+  border: none;
+  border-bottom-left-radius: 20px;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.search-box:focus {
+  border: 1px solid #000;
+  outline: none;
+}
+
+.search-btn {
+  border-end-end-radius: 20px;
+  cursor: pointer;
+  border: none;
+  border-top-right-radius: 20px;
+  margin-left: 1px;
+  padding: 10px 15px 8px 10px;
+  font-size: 10px;
+}
+
 .card-container {
-  margin: 30px 80px;
+  margin: 10px 30px;
 }
 
 .res-image {
-  border-radius: 50px;
-  width: 1043px;
-  height: 700px;
+  border-radius: 20px;
+  width: 260px;
+  height: 170px;
 }
 
 .description {
   color: #000;
-  margin-top: 25px;
-  margin-left: 50px;
+  margin-top: 5px;
+  margin-left: 12px;
   font-family: Basis Grotesque Pro;
-  font-size: 60px;
+  font-size: 15px;
 }
 
 .res-name {
@@ -66,7 +94,7 @@
 
 .cards-container {
   flex-wrap: wrap;
-  padding: 0 600px;
+  padding: 0 110px;
   display: flex;
 }
 

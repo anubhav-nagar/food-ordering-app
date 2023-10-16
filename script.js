@@ -8,7 +8,7 @@ import './style.css'
 
 function filterList(searchValue) {
   const filteredData = restraunts.filter((res)=>{
-    if(res.info.name.includes(searchValue)){
+    if(res.info.name.toLowerCase().includes(searchValue.toLowerCase())){
       return res;
     }
   })

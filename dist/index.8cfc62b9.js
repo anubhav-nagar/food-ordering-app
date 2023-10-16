@@ -2958,7 +2958,7 @@ var _styleCss = require("./style.css");
 var _s = $RefreshSig$();
 function filterList(searchValue) {
     const filteredData = (0, _dataJsDefault.default).filter((res)=>{
-        if (res.info.name.includes(searchValue)) return res;
+        if (res.info.name.toLowerCase().includes(searchValue.toLowerCase())) return res;
     });
     return filteredData;
 }
@@ -27543,6 +27543,12 @@ function SearchBar({ ...props }) {
                     onChange: (e)=>{
                         setSearchText(e.target.value);
                     },
+                    onKeyDown: (e)=>{
+                        if (e.key === "Enter") {
+                            const data = props.filterList(searchText);
+                            props.setList(data);
+                        }
+                    },
                     className: "search-box"
                 }, void 0, false, {
                     fileName: "components/SearchBar.jsx",
@@ -27559,12 +27565,12 @@ function SearchBar({ ...props }) {
                         className: "fa fa-search"
                     }, void 0, false, {
                         fileName: "components/SearchBar.jsx",
-                        lineNumber: 20,
+                        lineNumber: 25,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "components/SearchBar.jsx",
-                    lineNumber: 15,
+                    lineNumber: 20,
                     columnNumber: 9
                 }, this)
             ]

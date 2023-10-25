@@ -1,6 +1,6 @@
 .search-box{
     font-size: 15px;
-    padding: 5px 5px;
+    padding: 5px 5px 5px 15px;
     border-start-start-radius: 20px;
     border-bottom-left-radius: 20px;
     border: none;
@@ -14,10 +14,11 @@
 
 .search-btn{
     font-size: 10px;
-    padding: 10px 15px 8px 10px;
+    padding: 10px 12px 6px 10px;
     border-end-end-radius: 20px;
     border-top-right-radius: 20px;
     cursor: pointer;
     border: none;
     margin-left: 1px;
+
 }

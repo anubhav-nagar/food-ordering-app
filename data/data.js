@@ -2088,4 +2088,165 @@ const restaurants = [
   },
 ];
 
+
+const restaurants2 = [
+  {
+    info: {
+      id: "350077",
+      name: "Bakingo",
+      cloudinaryImageId: "hu1b2qzx9yizte2syzyq",
+      locality: "Shivaji Market",
+      areaName: "Tagore Garden",
+      costForTwo: "₹300 for two",
+      cuisines: ["Bakery", "Desserts", "Beverages", "Snacks"],
+      avgRating: 4.4,
+      feeDetails: {
+        restaurantId: "350077",
+        fees: [
+          {
+            name: "BASE_DISTANCE",
+            fee: 5900,
+          },
+          {
+            name: "BASE_TIME",
+          },
+          {
+            name: "ANCILLARY_SURGE_FEE",
+          },
+        ],
+        totalFee: 5900,
+      },
+      parentId: "3818",
+      avgRatingString: "4.4",
+      totalRatingsString: "5K+",
+      promoted: true,
+      adTrackingId:
+        "cid=8583592~p=1~eid=0000018b-325d-769b-549a-a25300d30179~srvts=1697357067931~45826",
+      sla: {
+        deliveryTime: 26,
+        lastMileTravel: 5.7,
+        serviceability: "SERVICEABLE",
+        slaString: "26 mins",
+        lastMileTravelString: "5.7 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2023-10-16 01:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          textBased: {},
+          imageBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+    },
+    analytics: {},
+    cta: {
+      link: "swiggy://menu?restaurant_id=350077",
+      text: "RESTAURANT_MENU",
+      type: "DEEPLINK",
+    },
+  },
+  {
+    info: {
+      id: "682159",
+      name: "Sharabi Kukkad - Indian & Chinese Delicacies",
+      cloudinaryImageId: "2ba1611531d3e2463c84a6c77fc088e7",
+      locality: "Jail Road",
+      areaName: "Janakpuri",
+      costForTwo: "₹800 for two",
+      cuisines: [
+        "North Indian",
+        "Chinese",
+        "Biryani",
+        "Salads",
+        "Fast Food",
+        "Kebabs",
+      ],
+      avgRating: 4.3,
+      feeDetails: {
+        restaurantId: "682159",
+        fees: [
+          {
+            name: "BASE_DISTANCE",
+            fee: 5300,
+          },
+          {
+            name: "BASE_TIME",
+          },
+          {
+            name: "ANCILLARY_SURGE_FEE",
+          },
+        ],
+        totalFee: 5300,
+      },
+      parentId: "407168",
+      avgRatingString: "4.3",
+      totalRatingsString: "100+",
+      promoted: true,
+      adTrackingId:
+        "cid=8741255~p=14~eid=0000018b-325d-769b-549a-a26000d30e59~srvts=1697357067931~45826",
+      sla: {
+        deliveryTime: 28,
+        lastMileTravel: 4.1,
+        serviceability: "SERVICEABLE",
+        slaString: "28 mins",
+        lastMileTravelString: "4.1 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2023-10-15 23:59:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          textBased: {},
+          imageBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "50% OFF",
+        subHeader: "UPTO ₹100",
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+    },
+    analytics: {},
+    cta: {
+      link: "swiggy://menu?restaurant_id=682159",
+      text: "RESTAURANT_MENU",
+      type: "DEEPLINK",
+    },
+  }
+]
 export default restaurants;

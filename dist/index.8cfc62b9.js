@@ -2955,6 +2955,8 @@ var _restrauntCardDefault = parcelHelpers.interopDefault(_restrauntCard);
 var _dataJs = require("./data/data.js");
 var _dataJsDefault = parcelHelpers.interopDefault(_dataJs);
 var _styleCss = require("./style.css");
+var _cardsShimmer = require("./components/CardsShimmer");
+var _cardsShimmerDefault = parcelHelpers.interopDefault(_cardsShimmer);
 var _s = $RefreshSig$();
 function filterList(searchValue) {
     const filteredData = (0, _dataJsDefault.default).filter((res)=>{
@@ -2965,6 +2967,17 @@ function filterList(searchValue) {
 const App = ()=>{
     _s();
     const [restrauntList, setRestrauntList] = (0, _react.useState)((0, _dataJsDefault.default));
+    // console.log(restrauntList);
+    // async function getRestaurants(){
+    //   const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.2893144&lng=80.4604643&is-seo-homepage-enabled=true');
+    //   const json = await data.json();
+    //   console.log(json.result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    //   setRestrauntList(json.result?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    // }
+    // // API not working
+    // useEffect(()=>{
+    //   getRestaurants();
+    // }, [])
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {
@@ -2972,27 +2985,28 @@ const App = ()=>{
                 setList: setRestrauntList
             }, void 0, false, {
                 fileName: "script.js",
-                lineNumber: 26,
+                lineNumber: 39,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "cards-container",
-                children: restrauntList.map((restraunt)=>{
+                children: // restrauntList?.length===0 ? <CardsShimmer /> :
+                restrauntList?.map((restraunt)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restrauntCardDefault.default), {
-                        name: restraunt.info.name,
-                        cuisines: restraunt.info.cuisines,
-                        ratings: restraunt.info.avgRating,
-                        imgId: restraunt.info.cloudinaryImageId,
-                        area: restraunt.info.areaName
-                    }, restraunt.info.id, false, {
+                        name: restraunt?.info?.name,
+                        cuisines: restraunt?.info?.cuisines,
+                        ratings: restraunt?.info?.avgRating,
+                        imgId: restraunt?.info?.cloudinaryImageId,
+                        area: restraunt?.info?.areaName
+                    }, restraunt?.info?.id, false, {
                         fileName: "script.js",
-                        lineNumber: 29,
+                        lineNumber: 44,
                         columnNumber: 20
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "script.js",
-                lineNumber: 27,
+                lineNumber: 40,
                 columnNumber: 7
             }, undefined)
         ]
@@ -3003,7 +3017,7 @@ _c = App;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "script.js",
-    lineNumber: 37,
+    lineNumber: 52,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -3014,7 +3028,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Header":"6nmoh","./components/RestrauntCard":"fZxvE","./data/data.js":"j0hGp","./style.css":"dRy26"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Header":"6nmoh","./components/RestrauntCard":"fZxvE","./data/data.js":"j0hGp","./style.css":"dRy26","./components/CardsShimmer":"66zzP"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -29847,8 +29861,217 @@ const restaurants = [
         }
     }
 ];
+const restaurants2 = [
+    {
+        info: {
+            id: "350077",
+            name: "Bakingo",
+            cloudinaryImageId: "hu1b2qzx9yizte2syzyq",
+            locality: "Shivaji Market",
+            areaName: "Tagore Garden",
+            costForTwo: "\u20B9300 for two",
+            cuisines: [
+                "Bakery",
+                "Desserts",
+                "Beverages",
+                "Snacks"
+            ],
+            avgRating: 4.4,
+            feeDetails: {
+                restaurantId: "350077",
+                fees: [
+                    {
+                        name: "BASE_DISTANCE",
+                        fee: 5900
+                    },
+                    {
+                        name: "BASE_TIME"
+                    },
+                    {
+                        name: "ANCILLARY_SURGE_FEE"
+                    }
+                ],
+                totalFee: 5900
+            },
+            parentId: "3818",
+            avgRatingString: "4.4",
+            totalRatingsString: "5K+",
+            promoted: true,
+            adTrackingId: "cid=8583592~p=1~eid=0000018b-325d-769b-549a-a25300d30179~srvts=1697357067931~45826",
+            sla: {
+                deliveryTime: 26,
+                lastMileTravel: 5.7,
+                serviceability: "SERVICEABLE",
+                slaString: "26 mins",
+                lastMileTravelString: "5.7 km",
+                iconType: "ICON_TYPE_EMPTY"
+            },
+            availability: {
+                nextCloseTime: "2023-10-16 01:00:00",
+                opened: true
+            },
+            badges: {},
+            isOpen: true,
+            aggregatedDiscountInfoV2: {},
+            type: "F",
+            badgesV2: {
+                entityBadges: {
+                    textBased: {},
+                    imageBased: {},
+                    textExtendedBadges: {}
+                }
+            },
+            differentiatedUi: {
+                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                differentiatedUiMediaDetails: {
+                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
+                    lottie: {},
+                    video: {}
+                }
+            },
+            reviewsSummary: {},
+            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            restaurantOfferPresentationInfo: {}
+        },
+        analytics: {},
+        cta: {
+            link: "swiggy://menu?restaurant_id=350077",
+            text: "RESTAURANT_MENU",
+            type: "DEEPLINK"
+        }
+    },
+    {
+        info: {
+            id: "682159",
+            name: "Sharabi Kukkad - Indian & Chinese Delicacies",
+            cloudinaryImageId: "2ba1611531d3e2463c84a6c77fc088e7",
+            locality: "Jail Road",
+            areaName: "Janakpuri",
+            costForTwo: "\u20B9800 for two",
+            cuisines: [
+                "North Indian",
+                "Chinese",
+                "Biryani",
+                "Salads",
+                "Fast Food",
+                "Kebabs"
+            ],
+            avgRating: 4.3,
+            feeDetails: {
+                restaurantId: "682159",
+                fees: [
+                    {
+                        name: "BASE_DISTANCE",
+                        fee: 5300
+                    },
+                    {
+                        name: "BASE_TIME"
+                    },
+                    {
+                        name: "ANCILLARY_SURGE_FEE"
+                    }
+                ],
+                totalFee: 5300
+            },
+            parentId: "407168",
+            avgRatingString: "4.3",
+            totalRatingsString: "100+",
+            promoted: true,
+            adTrackingId: "cid=8741255~p=14~eid=0000018b-325d-769b-549a-a26000d30e59~srvts=1697357067931~45826",
+            sla: {
+                deliveryTime: 28,
+                lastMileTravel: 4.1,
+                serviceability: "SERVICEABLE",
+                slaString: "28 mins",
+                lastMileTravelString: "4.1 km",
+                iconType: "ICON_TYPE_EMPTY"
+            },
+            availability: {
+                nextCloseTime: "2023-10-15 23:59:00",
+                opened: true
+            },
+            badges: {},
+            isOpen: true,
+            type: "F",
+            badgesV2: {
+                entityBadges: {
+                    textBased: {},
+                    imageBased: {},
+                    textExtendedBadges: {}
+                }
+            },
+            aggregatedDiscountInfoV3: {
+                header: "50% OFF",
+                subHeader: "UPTO \u20B9100"
+            },
+            differentiatedUi: {
+                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                differentiatedUiMediaDetails: {
+                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
+                    lottie: {},
+                    video: {}
+                }
+            },
+            reviewsSummary: {},
+            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            restaurantOfferPresentationInfo: {}
+        },
+        analytics: {},
+        cta: {
+            link: "swiggy://menu?restaurant_id=682159",
+            text: "RESTAURANT_MENU",
+            type: "DEEPLINK"
+        }
+    }
+];
 exports.default = restaurants;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dRy26":[function() {},{}]},["3yPwA","1xC6H","6rimH"], "6rimH", "parcelRequire10c2")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dRy26":[function() {},{}],"66zzP":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0ac6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0ac6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>CardsShimmer);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _cardsShimmerCss = require("./cardsShimmer.css");
+function CardsShimmer() {
+    const shimmerCard = Array.from({
+        length: 20
+    }).map((e, index)=>{
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "card-shimmer"
+        }, index, false, {
+            fileName: "components/CardsShimmer.jsx",
+            lineNumber: 6,
+            columnNumber: 12
+        }, this);
+    });
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "shimmer-alignment",
+            children: shimmerCard
+        }, void 0, false, {
+            fileName: "components/CardsShimmer.jsx",
+            lineNumber: 10,
+            columnNumber: 7
+        }, this)
+    }, void 0, false);
+}
+_c = CardsShimmer;
+var _c;
+$RefreshReg$(_c, "CardsShimmer");
+
+  $parcel$ReactRefreshHelpers$0ac6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./cardsShimmer.css":"jm4cC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jm4cC":[function() {},{}]},["3yPwA","1xC6H","6rimH"], "6rimH", "parcelRequire10c2")
 
 //# sourceMappingURL=index.8cfc62b9.js.map

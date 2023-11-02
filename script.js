@@ -1,25 +1,20 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
-import RestrauntCard from "./components/RestrauntCard";
 import restraunts from './data/data.js'
 import { useState } from "react";
-import './style.css'
-import CardsShimmer from "./components/CardsShimmer";
 
-function filterList(searchValue) {
-  const filteredData = restraunts.filter((res)=>{
-    if(res.info.name.toLowerCase().includes(searchValue.toLowerCase())){
-      return res;
-    }
-  })
-  return filteredData;
-}
+import CardsShimmer from "./components/CardsShimmer";
+import Body from "./components/Body";
+import {createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom'
+// import About from "./components/About";
+import Contact from "./components/Contact"
+import {lazy} from 'react'
+import { Suspense } from "react";
+
+const About = lazy(()=>import("./components/About"))
 
 const App = () => {
-
-  const [restrauntList, setRestrauntList] = useState(restraunts);
-
   // console.log(restrauntList);
 
   // async function getRestaurants(){
@@ -36,17 +31,32 @@ const App = () => {
 
   return (
     <>
-      <Header filterList={filterList} setList={setRestrauntList}/>
-      <div className="cards-container">
-        {
-        // restrauntList?.length===0 ? <CardsShimmer /> :
-        restrauntList?.map((restraunt) => {
-            return <RestrauntCard key={restraunt?.info?.id} name={restraunt?.info?.name} cuisines={restraunt?.info?.cuisines} ratings={restraunt?.info?.avgRating} imgId={restraunt?.info?.cloudinaryImageId} area={restraunt?.info?.areaName}/>
-        })}
-      </div>
+      <Header />
+      <Outlet />
     </>
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <Body/>
+      },
+      {
+        path: '/about',
+        element: <Suspense> <About/> </Suspense>
+      },
+      {
+        path: '/contact',
+        element: <Contact />
+      }
+    ]
+  }
+])
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(<RouterProvider router={appRouter} />);

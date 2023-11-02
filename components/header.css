@@ -30,4 +30,8 @@
     margin-left: 50px;
     font-family: ProximaNova,arial,Helvetica Neue,sans-serif;
     cursor: pointer;
+    color: white;
+}
+.nav-link{
+    text-decoration: none;
 }

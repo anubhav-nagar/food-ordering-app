@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../images/logo-2.png'
 // import './body.css'
 import RestrauntCard from "./RestrauntCard";
 import SearchBar from './SearchBar';
@@ -15,7 +16,7 @@ export default function Body() {
         <div className="search">
         <SearchBar setList={setRestrauntList} />
         </div>
-        <div className="flex flex-wrap pt-12 bg-slate-100 justify-center">
+        <div className="flex flex-wrap pt-12 pb-12 bg-slate-100 justify-center">
         {
         // restrauntList?.length===0 ? <CardsShimmer /> :
         restrauntList?.map((restaurant) => {

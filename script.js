@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
-import restraunts from './data/data.js'
-import { useState } from "react";
+import Footer from "./components/Footer.jsx";
 
 import CardsShimmer from "./components/CardsShimmer";
 import Body from "./components/Body";
@@ -33,6 +32,7 @@ const App = () => {
     <>
       <Header />
       <Outlet />
+      <Footer />
     </>
   );
 };

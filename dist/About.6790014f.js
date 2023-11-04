@@ -642,7 +642,7 @@ class About extends (0, _reactDefault.default).Component {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: this.state.userInfo?.avatar_url,
-                            className: "w-60 mt-16 ml-16 rounded-full"
+                            className: "w-60 mt-36 ml-16 rounded-full"
                         }, void 0, false, {
                             fileName: "components/About.jsx",
                             lineNumber: 37,
@@ -654,7 +654,7 @@ class About extends (0, _reactDefault.default).Component {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "mt-24 ml-12 text-xl leading-relaxed",
+                        className: "mt-44 ml-12 text-xl leading-relaxed",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                                 children: [

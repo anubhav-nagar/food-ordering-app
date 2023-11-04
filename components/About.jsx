@@ -34,9 +34,9 @@ class About extends React.Component {
         <>
         <div className="h-screen bg-slate-100 z-60 flex">
         <div>
-        <img src={this.state.userInfo?.avatar_url} className="w-60 mt-16 ml-16 rounded-full"></img>
+        <img src={this.state.userInfo?.avatar_url} className="w-60 mt-36 ml-16 rounded-full"></img>
         </div>
-        <div className="mt-24 ml-12 text-xl leading-relaxed">
+        <div className="mt-44 ml-12 text-xl leading-relaxed">
         <h3>Name: {this.state?.userInfo?.name}</h3>
         <h3>Location: {this.state.userInfo?.location}</h3>
         <h3>Bio: {this.state.userInfo?.bio}</h3>

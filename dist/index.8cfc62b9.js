@@ -3026,7 +3026,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 }, undefined)
             },
             {
-                path: "/contact",
+                path: "/support",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
                     fileName: "script.js",
                     lineNumber: 55,
@@ -3053,7 +3053,7 @@ $RefreshReg$(_c1, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/Header":"6nmoh","./data/data.js":"j0hGp","./components/CardsShimmer":"66zzP","./components/Body":"8RO98","react-router-dom":"9xmpe","./components/Contact":"idlIC","3ed26bdd7d06568b":"cr3QK"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./components/Header":"6nmoh","./data/data.js":"j0hGp","./components/CardsShimmer":"66zzP","./components/Body":"8RO98","react-router-dom":"9xmpe","./components/Contact":"idlIC","3ed26bdd7d06568b":"cr3QK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27240,175 +27240,7 @@ module.exports = require("ef03b89c8fe2794e");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("7422ead32dcc1e6b");
-function debounce(func, delay) {
-    {
-        let timeout = undefined;
-        let lastTime = 0;
-        return function(args) {
-            // Call immediately if last call was more than the delay ago.
-            // Otherwise, set a timeout. This means the first call is fast
-            // (for the common case of a single update), and subsequent updates
-            // are batched.
-            let now = Date.now();
-            if (now - lastTime > delay) {
-                lastTime = now;
-                func.call(null, args);
-            } else {
-                clearTimeout(timeout);
-                timeout = setTimeout(function() {
-                    timeout = undefined;
-                    lastTime = Date.now();
-                    func.call(null, args);
-                }, delay);
-            }
-        };
-    }
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30);
-// Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports;
-                // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
-                // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-}
-// When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        var typeID = id + " %exports% " + key;
-        Refresh.register(exportValue, typeID);
-    }
-}
-
-},{"7422ead32dcc1e6b":"786KC"}],"6nmoh":[function(require,module,exports) {
+},{}],"6nmoh":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$6433 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27483,11 +27315,11 @@ function Header() {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/contact",
+                                    to: "/support",
                                     className: "",
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                         className: "mr-8",
-                                        children: "Contact"
+                                        children: "Support"
                                     }, void 0, false, {
                                         fileName: "components/Header.jsx",
                                         lineNumber: 22,
@@ -27547,7 +27379,7 @@ $RefreshReg$(_c, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/logo-3.png":"ekJfP","react-router-dom":"9xmpe","../utils/useOnline":"bc9W5"}],"ekJfP":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/logo-3.png":"ekJfP","react-router-dom":"9xmpe","../utils/useOnline":"bc9W5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ekJfP":[function(require,module,exports) {
 module.exports = require("aaad1be59c2521d3").getBundleURL("fqV6O") + "logo-3.0be669d9.png" + "?" + Date.now();
 
 },{"aaad1be59c2521d3":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -27587,7 +27419,7 @@ exports.getOrigin = getOrigin;
 
 },{}],"9xmpe":[function(require,module,exports) {
 /**
- * React Router DOM v6.17.0
+ * React Router DOM v6.18.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -27656,6 +27488,7 @@ parcelHelpers.export(exports, "Link", ()=>Link);
 parcelHelpers.export(exports, "NavLink", ()=>NavLink);
 parcelHelpers.export(exports, "RouterProvider", ()=>RouterProvider);
 parcelHelpers.export(exports, "ScrollRestoration", ()=>ScrollRestoration);
+parcelHelpers.export(exports, "UNSAFE_FetchersContext", ()=>FetchersContext);
 parcelHelpers.export(exports, "UNSAFE_ViewTransitionContext", ()=>ViewTransitionContext);
 parcelHelpers.export(exports, "UNSAFE_useScrollRestoration", ()=>useScrollRestoration);
 parcelHelpers.export(exports, "createBrowserRouter", ()=>createBrowserRouter);
@@ -27872,13 +27705,14 @@ const _excluded = [
     "unstable_viewTransition",
     "children"
 ], _excluded3 = [
+    "fetcherKey",
+    "navigate",
     "reloadDocument",
     "replace",
     "state",
     "method",
     "action",
     "onSubmit",
-    "submit",
     "relative",
     "preventScrollReset",
     "unstable_viewTransition"
@@ -27959,6 +27793,8 @@ const ViewTransitionContext = /*#__PURE__*/ _react.createContext({
     isTransitioning: false
 });
 ViewTransitionContext.displayName = "ViewTransition";
+const FetchersContext = /*#__PURE__*/ _react.createContext(new Map());
+FetchersContext.displayName = "Fetchers";
 //#endregion
 ////////////////////////////////////////////////////////////////////////////////
 //#region Components
@@ -28020,6 +27856,7 @@ class Deferred {
     let [renderDfd, setRenderDfd] = _react.useState();
     let [transition, setTransition] = _react.useState();
     let [interruption, setInterruption] = _react.useState();
+    let fetcherData = _react.useRef(new Map());
     let { v7_startTransition } = future || {};
     let optInStartTransition = _react.useCallback((cb)=>{
         if (v7_startTransition) startTransitionSafe(cb);
@@ -28028,7 +27865,11 @@ class Deferred {
         v7_startTransition
     ]);
     let setState = _react.useCallback((newState, _ref2)=>{
-        let { unstable_viewTransitionOpts: viewTransitionOpts } = _ref2;
+        let { deletedFetchers, unstable_viewTransitionOpts: viewTransitionOpts } = _ref2;
+        deletedFetchers.forEach((key)=>fetcherData.current.delete(key));
+        newState.fetchers.forEach((fetcher, key)=>{
+            if (fetcher.data !== undefined) fetcherData.current.set(key, fetcher.data);
+        });
         if (!viewTransitionOpts || router.window == null || typeof router.window.document.startViewTransition !== "function") // Mid-navigation state update, or startViewTransition isn't available
         optInStartTransition(()=>setStateImpl(newState));
         else if (transition && renderDfd) {
@@ -28051,10 +27892,11 @@ class Deferred {
             });
         }
     }, [
-        optInStartTransition,
+        router.window,
         transition,
         renderDfd,
-        router.window
+        fetcherData,
+        optInStartTransition
     ]);
     // Need to use a layout effect here so we are subscribed early enough to
     // pick up on any render-driven redirects/navigations (useEffect/<Navigate>)
@@ -28161,6 +28003,8 @@ class Deferred {
         value: dataRouterContext
     }, /*#__PURE__*/ _react.createElement((0, _reactRouter.UNSAFE_DataRouterStateContext).Provider, {
         value: state
+    }, /*#__PURE__*/ _react.createElement(FetchersContext.Provider, {
+        value: fetcherData.current
     }, /*#__PURE__*/ _react.createElement(ViewTransitionContext.Provider, {
         value: vtContext
     }, /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
@@ -28171,7 +28015,7 @@ class Deferred {
     }, state.initialized ? /*#__PURE__*/ _react.createElement(DataRoutes, {
         routes: router.routes,
         state: state
-    }) : fallbackElement)))), null);
+    }) : fallbackElement))))), null);
 }
 function DataRoutes(_ref3) {
     let { routes, state } = _ref3;
@@ -28384,20 +28228,13 @@ NavLink.displayName = "NavLink";
  * that the interaction with the server is with `fetch` instead of new document
  * requests, allowing components to add nicer UX to the page as the form is
  * submitted and returns with data.
- */ const Form = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
+ */ const Form = /*#__PURE__*/ _react.forwardRef((_ref9, forwardedRef)=>{
+    let { fetcherKey, navigate, reloadDocument, replace, state, method = defaultMethod, action, onSubmit, relative, preventScrollReset, unstable_viewTransition } = _ref9, props = _objectWithoutPropertiesLoose(_ref9, _excluded3);
     let submit = useSubmit();
-    return /*#__PURE__*/ _react.createElement(FormImpl, _extends({}, props, {
-        submit: submit,
-        ref: ref
-    }));
-});
-Form.displayName = "Form";
-const FormImpl = /*#__PURE__*/ _react.forwardRef((_ref9, forwardedRef)=>{
-    let { reloadDocument, replace, state, method = defaultMethod, action, onSubmit, submit, relative, preventScrollReset, unstable_viewTransition } = _ref9, props = _objectWithoutPropertiesLoose(_ref9, _excluded3);
-    let formMethod = method.toLowerCase() === "get" ? "get" : "post";
     let formAction = useFormAction(action, {
         relative
     });
+    let formMethod = method.toLowerCase() === "get" ? "get" : "post";
     let submitHandler = (event)=>{
         onSubmit && onSubmit(event);
         if (event.defaultPrevented) return;
@@ -28405,7 +28242,9 @@ const FormImpl = /*#__PURE__*/ _react.forwardRef((_ref9, forwardedRef)=>{
         let submitter = event.nativeEvent.submitter;
         let submitMethod = (submitter == null ? void 0 : submitter.getAttribute("formmethod")) || method;
         submit(submitter || event.currentTarget, {
+            fetcherKey,
             method: submitMethod,
+            navigate,
             replace,
             state,
             relative,
@@ -28420,7 +28259,7 @@ const FormImpl = /*#__PURE__*/ _react.forwardRef((_ref9, forwardedRef)=>{
         onSubmit: reloadDocument ? onSubmit : submitHandler
     }, props));
 });
-FormImpl.displayName = "FormImpl";
+Form.displayName = "Form";
 /**
  * This component will emulate the browser's scroll restoration on location
  * changes.
@@ -28447,9 +28286,11 @@ var DataRouterHook;
 })(DataRouterHook || (DataRouterHook = {}));
 var DataRouterStateHook;
 (function(DataRouterStateHook) {
+    DataRouterStateHook["UseFetcher"] = "useFetcher";
     DataRouterStateHook["UseFetchers"] = "useFetchers";
     DataRouterStateHook["UseScrollRestoration"] = "useScrollRestoration";
 })(DataRouterStateHook || (DataRouterStateHook = {}));
+// Internal hooks
 function getDataRouterConsoleError(hookName) {
     return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
 }
@@ -28463,6 +28304,7 @@ function useDataRouterState(hookName) {
     !state && (0, _router.UNSAFE_invariant)(false, getDataRouterConsoleError(hookName));
     return state;
 }
+// External hooks
 /**
  * Handles the click behavior for router `<Link>` components. This is useful if
  * you need to create custom `<Link>` components with the same click behavior we
@@ -28532,6 +28374,8 @@ function useDataRouterState(hookName) {
 function validateClientSideSubmission() {
     if (typeof document === "undefined") throw new Error("You are calling submit during the server render. Try calling submit within a `useEffect` or callback instead.");
 }
+let fetcherId = 0;
+let getUniqueFetcherId = ()=>"__" + String(++fetcherId) + "__";
 /**
  * Returns a function that may be used to programmatically submit a form (or
  * some arbitrary data) to the server.
@@ -28543,7 +28387,16 @@ function validateClientSideSubmission() {
         if (options === void 0) options = {};
         validateClientSideSubmission();
         let { action, method, encType, formData, body } = getFormSubmissionInfo(target, basename);
-        router.navigate(options.action || action, {
+        if (options.navigate === false) {
+            let key = options.fetcherKey || getUniqueFetcherId();
+            router.fetch(key, currentRouteId, options.action || action, {
+                preventScrollReset: options.preventScrollReset,
+                formData,
+                body,
+                formMethod: options.method || method,
+                formEncType: options.encType || encType
+            });
+        } else router.navigate(options.action || action, {
             preventScrollReset: options.preventScrollReset,
             formData,
             body,
@@ -28558,30 +28411,6 @@ function validateClientSideSubmission() {
         router,
         basename,
         currentRouteId
-    ]);
-}
-/**
- * Returns the implementation for fetcher.submit
- */ function useSubmitFetcher(fetcherKey, fetcherRouteId) {
-    let { router } = useDataRouterContext(DataRouterHook.UseSubmitFetcher);
-    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
-    return _react.useCallback(function(target, options) {
-        if (options === void 0) options = {};
-        validateClientSideSubmission();
-        let { action, method, encType, formData, body } = getFormSubmissionInfo(target, basename);
-        !(fetcherRouteId != null) && (0, _router.UNSAFE_invariant)(false, "No routeId available for useFetcher()");
-        router.fetch(fetcherKey, fetcherRouteId, options.action || action, {
-            preventScrollReset: options.preventScrollReset,
-            formData,
-            body,
-            formMethod: options.method || method,
-            formEncType: options.encType || encType
-        });
-    }, [
-        router,
-        basename,
-        fetcherKey,
-        fetcherRouteId
     ]);
 }
 // v7: Eventually we should deprecate this entirely in favor of using the
@@ -28627,65 +28456,84 @@ function useFormAction(action, _temp2) {
     ]);
     return (0, _reactRouter.createPath)(path);
 }
-function createFetcherForm(fetcherKey, routeId) {
-    let FetcherForm = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
-        let submit = useSubmitFetcher(fetcherKey, routeId);
-        return /*#__PURE__*/ _react.createElement(FormImpl, _extends({}, props, {
-            ref: ref,
-            submit: submit
-        }));
-    });
-    FetcherForm.displayName = "fetcher.Form";
-    return FetcherForm;
-}
-let fetcherId = 0;
 // TODO: (v7) Change the useFetcher generic default from `any` to `unknown`
 /**
  * Interacts with route loaders and actions without causing a navigation. Great
  * for any interaction that stays on the same page.
- */ function useFetcher() {
+ */ function useFetcher(_temp3) {
     var _route$matches;
+    let { key } = _temp3 === void 0 ? {} : _temp3;
     let { router } = useDataRouterContext(DataRouterHook.UseFetcher);
+    let state = useDataRouterState(DataRouterStateHook.UseFetcher);
+    let fetcherData = _react.useContext(FetchersContext);
     let route = _react.useContext((0, _reactRouter.UNSAFE_RouteContext));
-    !route && (0, _router.UNSAFE_invariant)(false, "useFetcher must be used inside a RouteContext");
     let routeId = (_route$matches = route.matches[route.matches.length - 1]) == null ? void 0 : _route$matches.route.id;
+    !fetcherData && (0, _router.UNSAFE_invariant)(false, "useFetcher must be used inside a FetchersContext");
+    !route && (0, _router.UNSAFE_invariant)(false, "useFetcher must be used inside a RouteContext");
     !(routeId != null) && (0, _router.UNSAFE_invariant)(false, 'useFetcher can only be used on routes that contain a unique "id"');
-    let [fetcherKey] = _react.useState(()=>String(++fetcherId));
-    let [Form] = _react.useState(()=>{
-        !routeId && (0, _router.UNSAFE_invariant)(false, "No routeId available for fetcher.Form()");
-        return createFetcherForm(fetcherKey, routeId);
-    });
-    let [load] = _react.useState(()=>(href)=>{
-            !router && (0, _router.UNSAFE_invariant)(false, "No router available for fetcher.load()");
-            !routeId && (0, _router.UNSAFE_invariant)(false, "No routeId available for fetcher.load()");
-            router.fetch(fetcherKey, routeId, href);
-        });
-    let submit = useSubmitFetcher(fetcherKey, routeId);
-    let fetcher = router.getFetcher(fetcherKey);
-    let fetcherWithComponents = _react.useMemo(()=>_extends({
-            Form,
-            submit,
-            load
-        }, fetcher), [
-        fetcher,
-        Form,
-        submit,
-        load
-    ]);
+    // Fetcher key handling
+    let [fetcherKey, setFetcherKey] = _react.useState(key || "");
+    if (!fetcherKey) setFetcherKey(getUniqueFetcherId());
+    // Registration/cleanup
     _react.useEffect(()=>{
-        // Is this busted when the React team gets real weird and calls effects
-        // twice on mount?  We really just need to garbage collect here when this
-        // fetcher is no longer around.
+        router.getFetcher(fetcherKey);
         return ()=>{
-            if (!router) {
-                console.warn("No router available to clean up from useFetcher()");
-                return;
-            }
+            // Tell the router we've unmounted - if v7_fetcherPersist is enabled this
+            // will not delete immediately but instead queue up a delete after the
+            // fetcher returns to an `idle` state
             router.deleteFetcher(fetcherKey);
         };
     }, [
         router,
         fetcherKey
+    ]);
+    // Fetcher additions
+    let load = _react.useCallback((href)=>{
+        !routeId && (0, _router.UNSAFE_invariant)(false, "No routeId available for fetcher.load()");
+        router.fetch(fetcherKey, routeId, href);
+    }, [
+        fetcherKey,
+        routeId,
+        router
+    ]);
+    let submitImpl = useSubmit();
+    let submit = _react.useCallback((target, opts)=>{
+        submitImpl(target, _extends({}, opts, {
+            navigate: false,
+            fetcherKey
+        }));
+    }, [
+        fetcherKey,
+        submitImpl
+    ]);
+    let FetcherForm = _react.useMemo(()=>{
+        let FetcherForm = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
+            return /*#__PURE__*/ _react.createElement(Form, _extends({}, props, {
+                navigate: false,
+                fetcherKey: fetcherKey,
+                ref: ref
+            }));
+        });
+        FetcherForm.displayName = "fetcher.Form";
+        return FetcherForm;
+    }, [
+        fetcherKey
+    ]);
+    // Exposed FetcherWithComponents
+    let fetcher = state.fetchers.get(fetcherKey) || (0, _router.IDLE_FETCHER);
+    let data = fetcherData.get(fetcherKey);
+    let fetcherWithComponents = _react.useMemo(()=>_extends({
+            Form: FetcherForm,
+            submit,
+            load
+        }, fetcher, {
+            data
+        }), [
+        FetcherForm,
+        submit,
+        load,
+        fetcher,
+        data
     ]);
     return fetcherWithComponents;
 }
@@ -28694,16 +28542,19 @@ let fetcherId = 0;
  * routes that need to provide pending/optimistic UI regarding the fetch.
  */ function useFetchers() {
     let state = useDataRouterState(DataRouterStateHook.UseFetchers);
-    return [
-        ...state.fetchers.values()
-    ];
+    return Array.from(state.fetchers.entries()).map((_ref11)=>{
+        let [key, fetcher] = _ref11;
+        return _extends({}, fetcher, {
+            key
+        });
+    });
 }
 const SCROLL_RESTORATION_STORAGE_KEY = "react-router-scroll-positions";
 let savedScrollPositions = {};
 /**
  * When rendered inside a RouterProvider, will restore scroll positions on navigations
- */ function useScrollRestoration(_temp3) {
-    let { getKey, storageKey } = _temp3 === void 0 ? {} : _temp3;
+ */ function useScrollRestoration(_temp4) {
+    let { getKey, storageKey } = _temp4 === void 0 ? {} : _temp4;
     let { router } = useDataRouterContext(DataRouterHook.UseScrollRestoration);
     let { restoreScrollPosition, preventScrollReset } = useDataRouterState(DataRouterStateHook.UseScrollRestoration);
     let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
@@ -28842,8 +28693,8 @@ let savedScrollPositions = {};
  * Warning: This has *a lot of rough edges* and behaves very differently (and
  * very incorrectly in some cases) across browsers if user click addition
  * back/forward navigations while the confirm is open.  Use at your own risk.
- */ function usePrompt(_ref11) {
-    let { when, message } = _ref11;
+ */ function usePrompt(_ref12) {
+    let { when, message } = _ref12;
     let blocker = (0, _reactRouter.unstable_useBlocker)(when);
     _react.useEffect(()=>{
         if (blocker.state === "blocked") {
@@ -28901,7 +28752,7 @@ let savedScrollPositions = {};
 
 },{"react":"21dqq","react-router":"dbWyW","@remix-run/router":"5ncDG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dbWyW":[function(require,module,exports) {
 /**
- * React Router v6.17.0
+ * React Router v6.18.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -30085,7 +29936,7 @@ function createMemoryRouter(routes, opts) {
 
 },{"react":"21dqq","@remix-run/router":"5ncDG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5ncDG":[function(require,module,exports) {
 /**
- * @remix-run/router v1.10.0
+ * @remix-run/router v1.11.0
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -30798,20 +30649,23 @@ function matchRouteBranch(branch, pathname) {
         caseSensitive: false,
         end: true
     };
-    let [matcher, paramNames] = compilePath(pattern.path, pattern.caseSensitive, pattern.end);
+    let [matcher, compiledParams] = compilePath(pattern.path, pattern.caseSensitive, pattern.end);
     let match = pathname.match(matcher);
     if (!match) return null;
     let matchedPathname = match[0];
     let pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
     let captureGroups = match.slice(1);
-    let params = paramNames.reduce((memo, paramName, index)=>{
+    let params = compiledParams.reduce((memo, _ref, index)=>{
+        let { paramName, isOptional } = _ref;
         // We need to compute the pathnameBase here using the raw splat value
         // instead of using params["*"] later because it will be decoded then
         if (paramName === "*") {
             let splatValue = captureGroups[index] || "";
             pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
         }
-        memo[paramName] = safelyDecodeURIComponent(captureGroups[index] || "", paramName);
+        const value = captureGroups[index];
+        if (isOptional && !value) memo[paramName] = undefined;
+        else memo[paramName] = safelyDecodeURIComponent(value || "", paramName);
         return memo;
     }, {});
     return {
@@ -30825,16 +30679,21 @@ function compilePath(path, caseSensitive, end) {
     if (caseSensitive === void 0) caseSensitive = false;
     if (end === void 0) end = true;
     warning(path === "*" || !path.endsWith("*") || path.endsWith("/*"), 'Route path "' + path + '" will be treated as if it were ' + ('"' + path.replace(/\*$/, "/*") + '" because the `*` character must ') + "always follow a `/` in the pattern. To get rid of this warning, " + ('please change the route path to "' + path.replace(/\*$/, "/*") + '".'));
-    let paramNames = [];
+    let params = [];
     let regexpSource = "^" + path.replace(/\/*\*?$/, "") // Ignore trailing / and /*, we'll handle it below
     .replace(/^\/*/, "/") // Make sure it has a leading /
-    .replace(/[\\.*+^$?{}|()[\]]/g, "\\$&") // Escape special regex chars
-    .replace(/\/:(\w+)/g, (_, paramName)=>{
-        paramNames.push(paramName);
-        return "/([^\\/]+)";
+    .replace(/[\\.*+^${}|()[\]]/g, "\\$&") // Escape special regex chars
+    .replace(/\/:(\w+)(\?)?/g, (_, paramName, isOptional)=>{
+        params.push({
+            paramName,
+            isOptional: isOptional != null
+        });
+        return isOptional ? "/?([^\\/]+)?" : "/([^\\/]+)";
     });
     if (path.endsWith("*")) {
-        paramNames.push("*");
+        params.push({
+            paramName: "*"
+        });
         regexpSource += path === "*" || path === "/*" ? "(.*)$" // Already matched the initial /, just match the rest
          : "(?:\\/(.+)|\\/*)$"; // Don't include the / in params["*"]
     } else if (end) // When matching to the end, ignore trailing slashes
@@ -30850,7 +30709,7 @@ function compilePath(path, caseSensitive, end) {
     let matcher = new RegExp(regexpSource, caseSensitive ? undefined : "i");
     return [
         matcher,
-        paramNames
+        params
     ];
 }
 function safelyDecodeURI(value) {
@@ -31033,8 +30892,8 @@ class DeferredData {
         let onAbort = ()=>reject(new AbortedDeferredError("Deferred data aborted"));
         this.unlistenAbortSignal = ()=>this.controller.signal.removeEventListener("abort", onAbort);
         this.controller.signal.addEventListener("abort", onAbort);
-        this.data = Object.entries(data).reduce((acc, _ref)=>{
-            let [key, value] = _ref;
+        this.data = Object.entries(data).reduce((acc, _ref2)=>{
+            let [key, value] = _ref2;
             return Object.assign(acc, {
                 [key]: this.trackPromise(key, value)
             });
@@ -31126,8 +30985,8 @@ class DeferredData {
     }
     get unwrappedData() {
         invariant(this.data !== null && this.done, "Can only unwrap data on initialized and settled deferreds");
-        return Object.entries(this.data).reduce((acc, _ref2)=>{
-            let [key, value] = _ref2;
+        return Object.entries(this.data).reduce((acc, _ref3)=>{
+            let [key, value] = _ref3;
             return Object.assign(acc, {
                 [key]: unwrapTrackedPromise(value)
             });
@@ -31284,6 +31143,7 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
     let basename = init.basename || "/";
     // Config driven behavior flags
     let future = _extends({
+        v7_fetcherPersist: false,
         v7_normalizeFormMethod: false,
         v7_prependBasename: false
     }, init.future);
@@ -31381,6 +31241,11 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
     let fetchRedirectIds = new Set();
     // Most recent href/match for fetcher.load calls for fetchers
     let fetchLoadMatches = new Map();
+    // Ref-count mounted fetchers so we know when it's ok to clean them up
+    let activeFetchers = new Map();
+    // Fetchers that have requested a delete when using v7_fetcherPersist,
+    // they'll be officially removed after they return to idle
+    let deletedFetchers = new Set();
     // Store DeferredData instances for active route matches.  When a
     // route loader returns defer() we stick one in here.  Then, when a nested
     // promise resolves we update loaderData.  If a new navigation starts we
@@ -31475,9 +31340,28 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
     // Update our state and notify the calling context of the change
     function updateState(newState, viewTransitionOpts) {
         state = _extends({}, state, newState);
+        // Prep fetcher cleanup so we can tell the UI which fetcher data entries
+        // can be removed
+        let completedFetchers = [];
+        let deletedFetchersKeys = [];
+        if (future.v7_fetcherPersist) state.fetchers.forEach((fetcher, key)=>{
+            if (fetcher.state === "idle") {
+                if (deletedFetchers.has(key)) // Unmounted from the UI and can be totally removed
+                deletedFetchersKeys.push(key);
+                else // Returned to idle but still mounted in the UI, so semi-remains for
+                // revalidations and such
+                completedFetchers.push(key);
+            }
+        });
         subscribers.forEach((subscriber)=>subscriber(state, {
+                deletedFetchers: deletedFetchersKeys,
                 unstable_viewTransitionOpts: viewTransitionOpts
             }));
+        // Remove idle fetchers from state since we only care about in-flight fetchers.
+        if (future.v7_fetcherPersist) {
+            completedFetchers.forEach((key)=>state.fetchers.delete(key));
+            deletedFetchersKeys.forEach((key)=>deleteFetcher(key));
+        }
     }
     // Complete a navigation returning the state.navigation back to the IDLE_NAVIGATION
     // and setting state.[historyAction/location/matches] to the new route.
@@ -31935,6 +31819,12 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
         } : {});
     }
     function getFetcher(key) {
+        if (future.v7_fetcherPersist) {
+            activeFetchers.set(key, (activeFetchers.get(key) || 0) + 1);
+            // If this fetcher was previously marked for deletion, unmark it since we
+            // have a new instance
+            if (deletedFetchers.has(key)) deletedFetchers.delete(key);
+        }
         return state.fetchers.get(key) || IDLE_FETCHER;
     }
     // Trigger a fetcher load/submit for the given fetcher key
@@ -31997,9 +31887,16 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
         let originatingLoadId = incrementingLoadId;
         let actionResult = await callLoaderOrAction("action", fetchRequest, match, requestMatches, manifest, mapRouteProperties, basename);
         if (fetchRequest.signal.aborted) {
-            // We can delete this so long as we weren't aborted by ou our own fetcher
+            // We can delete this so long as we weren't aborted by our own fetcher
             // re-submit which would have put _new_ controller is in fetchControllers
             if (fetchControllers.get(key) === abortController) fetchControllers.delete(key);
+            return;
+        }
+        if (deletedFetchers.has(key)) {
+            state.fetchers.set(key, getDoneFetcher(undefined));
+            updateState({
+                fetchers: new Map(state.fetchers)
+            });
             return;
         }
         if (isRedirectResult(actionResult)) {
@@ -32091,7 +31988,7 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
             let doneFetcher = getDoneFetcher(actionResult.data);
             state.fetchers.set(key, doneFetcher);
         }
-        let didAbortFetchLoads = abortStaleFetchLoads(loadId);
+        abortStaleFetchLoads(loadId);
         // If we are currently in a navigation loading state and this fetcher is
         // more recent than the navigation, we want the newer data so abort the
         // navigation and complete it with the fetcher data
@@ -32108,12 +32005,11 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
             // otherwise just update with the fetcher data, preserving any existing
             // loaderData for loaders that did not need to reload.  We have to
             // manually merge here since we aren't going through completeNavigation
-            updateState(_extends({
+            updateState({
                 errors,
-                loaderData: mergeLoaderData(state.loaderData, loaderData, matches, errors)
-            }, didAbortFetchLoads || revalidatingFetchers.length > 0 ? {
+                loaderData: mergeLoaderData(state.loaderData, loaderData, matches, errors),
                 fetchers: new Map(state.fetchers)
-            } : {}));
+            });
             isRevalidationRequired = false;
         }
     }
@@ -32141,6 +32037,13 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
         // re-load which would have put _new_ controller is in fetchControllers
         if (fetchControllers.get(key) === abortController) fetchControllers.delete(key);
         if (fetchRequest.signal.aborted) return;
+        if (deletedFetchers.has(key)) {
+            state.fetchers.set(key, getDoneFetcher(undefined));
+            updateState({
+                fetchers: new Map(state.fetchers)
+            });
+            return;
+        }
         // If the loader threw a redirect Response, start a new REPLACE navigation
         if (isRedirectResult(result)) {
             if (pendingNavigationLoadId > originatingLoadId) {
@@ -32160,17 +32063,7 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
         }
         // Process any non-redirect errors thrown
         if (isErrorResult(result)) {
-            let boundaryMatch = findNearestBoundary(state.matches, routeId);
-            state.fetchers.delete(key);
-            // TODO: In remix, this would reset to IDLE_NAVIGATION if it was a catch -
-            // do we need to behave any differently with our non-redirect errors?
-            // What if it was a non-redirect Response?
-            updateState({
-                fetchers: new Map(state.fetchers),
-                errors: {
-                    [boundaryMatch.route.id]: result.error
-                }
-            });
+            setFetcherError(key, routeId, result.error);
             return;
         }
         invariant(!isDeferredResult(result), "Unhandled fetcher deferred data");
@@ -32318,7 +32211,20 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
         fetchLoadMatches.delete(key);
         fetchReloadIds.delete(key);
         fetchRedirectIds.delete(key);
+        deletedFetchers.delete(key);
         state.fetchers.delete(key);
+    }
+    function deleteFetcherAndUpdateState(key) {
+        if (future.v7_fetcherPersist) {
+            let count = (activeFetchers.get(key) || 0) - 1;
+            if (count <= 0) {
+                activeFetchers.delete(key);
+                deletedFetchers.add(key);
+            } else activeFetchers.set(key, count);
+        } else deleteFetcher(key);
+        updateState({
+            fetchers: new Map(state.fetchers)
+        });
     }
     function abortFetcher(key) {
         let controller = fetchControllers.get(key);
@@ -32488,7 +32394,7 @@ const TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
         createHref: (to)=>init.history.createHref(to),
         encodeLocation: (to)=>init.history.encodeLocation(to),
         getFetcher,
-        deleteFetcher,
+        deleteFetcher: deleteFetcherAndUpdateState,
         dispose,
         getBlocker,
         deleteBlocker,
@@ -33770,7 +33676,37 @@ function persistAppliedTransitions(_window, transitions) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bc9W5":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"bc9W5":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9de7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -33809,7 +33745,145 @@ exports.default = useOnline;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"j0hGp":[function(require,module,exports) {
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("7422ead32dcc1e6b");
+function debounce(func, delay) {
+    {
+        let timeout = undefined;
+        let lastTime = 0;
+        return function(args) {
+            // Call immediately if last call was more than the delay ago.
+            // Otherwise, set a timeout. This means the first call is fast
+            // (for the common case of a single update), and subsequent updates
+            // are batched.
+            let now = Date.now();
+            if (now - lastTime > delay) {
+                lastTime = now;
+                func.call(null, args);
+            } else {
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    timeout = undefined;
+                    lastTime = Date.now();
+                    func.call(null, args);
+                }, delay);
+            }
+        };
+    }
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30);
+// Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports;
+                // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
+                // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+}
+// When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        var typeID = id + " %exports% " + key;
+        Refresh.register(exportValue, typeID);
+    }
+}
+
+},{"7422ead32dcc1e6b":"786KC"}],"j0hGp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const restaurants = [
@@ -36466,33 +36540,45 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _accordion = require("./Accordion");
+var _accordionDefault = parcelHelpers.interopDefault(_accordion);
+var _s = $RefreshSig$();
 const Contact = ()=>{
+    _s();
+    const [visibleSection, setVisibleSection] = (0, _react.useState)("a1");
+    const [expandedButton, setExpandedButton] = (0, _react.useState)("a1");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "text-3xl pl-44 pt-40 bg-slate-100 h-screen w-screen",
+            className: "bg-slate-100 h-screen pt-10",
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                    children: "Mail: anubhavnagar009@gmail.com"
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    className: "ml-4 text-xl font-bold mb-4",
+                    children: "FAQs:"
                 }, void 0, false, {
                     fileName: "components/Contact.jsx",
-                    lineNumber: 5,
+                    lineNumber: 10,
                     columnNumber: 9
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                    children: "LinkedIn: anubhav-nagar"
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _accordionDefault.default), {
+                    visibleSection: visibleSection,
+                    setVisibleSection: setVisibleSection,
+                    expandedButton: expandedButton,
+                    setExpandedButton: setExpandedButton
                 }, void 0, false, {
                     fileName: "components/Contact.jsx",
-                    lineNumber: 6,
+                    lineNumber: 11,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "components/Contact.jsx",
-            lineNumber: 4,
+            lineNumber: 9,
             columnNumber: 7
         }, undefined)
     }, void 0, false);
 };
+_s(Contact, "0RwA9JjO+2fjsP9NpetPNdgW/Cw=");
 _c = Contact;
 exports.default = Contact;
 var _c;
@@ -36503,7 +36589,708 @@ $RefreshReg$(_c, "Contact");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cr3QK":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Accordion":"dRg2b","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dRg2b":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$2a47 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2a47.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const Accordion = ({ visibleSection, setVisibleSection, expandedButton, setExpandedButton })=>{
+    // const [isHidden, setIsHidden] = useState(true);
+    function clickFunctionality(section) {
+        if (visibleSection == section) {
+            setVisibleSection("");
+            setExpandedButton("");
+        } else {
+            setVisibleSection(section);
+            setExpandedButton(section);
+        }
+    }
+    const greater = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+        children: ">"
+    }, void 0, false, {
+        fileName: "components/Accordion.jsx",
+        lineNumber: 17,
+        columnNumber: 19
+    }, undefined);
+    const lower = /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+        children: "v"
+    }, void 0, false, {
+        fileName: "components/Accordion.jsx",
+        lineNumber: 18,
+        columnNumber: 17
+    }, undefined);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a1"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a1" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 24,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: " What is the delivery radius of your food ordering service?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 25,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 23,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a1" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "We currently offer delivery within a 10-kilometer radius from our restaurants in Meerut, ensuring that you can enjoy our delicious food in the comfort of your own home."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 28,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 27,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 22,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 21,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a2"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a2" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 36,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "How can I place an order through the app?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 37,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 35,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a2" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "Placing an order is easy! Simply download our app from the App Store or Google Play, create an account, browse the menu, select your desired items, and proceed to checkout."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 40,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 39,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 34,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 33,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a3"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a3" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 48,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "Are there any delivery charges for orders placed through the app?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 49,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 47,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a3" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "Yes, there might be a nominal delivery fee based on your location and order value. You can view the delivery charges during the checkout process before confirming your order."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 52,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 51,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 46,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 45,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a4"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a4" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 60,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "What cuisines do you offer on the app?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 61,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 59,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a4" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "We offer a diverse range of cuisines, including Indian, Chinese, Italian, Mexican, and more. Explore our app to discover a variety of delicious options to satisfy your cravings."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 64,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 63,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 58,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 57,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a5"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a5" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 72,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "Can I schedule a future order through the app?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 73,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 71,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a5" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "Of course! Our app allows you to schedule orders in advance, making it convenient for you to plan and enjoy your favorite meals at your preferred time."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 76,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 75,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 70,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 69,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a6"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a6" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 84,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "How can I track the status of my order placed through the app?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 85,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 83,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a6" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "You can easily track your order in real-time through the app. Once your order is confirmed, you will receive updates on its preparation, dispatch, and estimated delivery time."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 88,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 87,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 82,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 81,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a7"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a7" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 96,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "Do you offer any rewards or loyalty programs for frequent app users?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 97,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 95,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a7" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "Yes, we value our loyal customers! Earn reward points on every order, and redeem them for exciting discounts and special offers on future orders."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 100,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 99,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 94,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 93,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a8"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a8" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 108,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "What safety measures do you follow to ensure the hygiene of the food ordered through the app?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 109,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 107,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a8" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "We strictly adhere to stringent hygiene and safety standards in food preparation and delivery. Our partner restaurants are required to maintain high cleanliness and sanitation practices to ensure the quality and safety of your food."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 112,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 111,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 106,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 105,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a9"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a9" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 120,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "Can I customize my order based on my dietary preferences or allergies through the app?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 121,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 119,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a9" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "Absolutely! You can customize your order to accommodate your dietary preferences or allergies by using the customization options provided within the app."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 124,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 123,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 118,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 117,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a10"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a10" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 132,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "How can I provide feedback or rate my experience with the app service?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 133,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 131,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a10" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "We encourage your feedback! You can rate your experience and provide feedback directly within the app. Your valuable input helps us improve our services and enhance your overall app experience."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 136,
+                                columnNumber: 40
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 135,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 130,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 129,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "pt-2 pl-6 w-11/12",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "border-2 border-slate-800 rounded pl-4 pt-2 pb-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>clickFunctionality("a11"),
+                                    className: "mr-3 -mt-1",
+                                    children: [
+                                        " ",
+                                        visibleSection === "a11" ? lower : greater
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 144,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                    className: "font-mono",
+                                    children: "What payment methods are accepted on the app?"
+                                }, void 0, false, {
+                                    fileName: "components/Accordion.jsx",
+                                    lineNumber: 145,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 143,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "pl-8 text-sm",
+                            children: visibleSection === "a11" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                children: "We accept various secure payment methods, including credit/debit cards, net banking, and popular digital wallets. Choose your preferred payment option at the checkout for a seamless and secure transaction."
+                            }, void 0, false, {
+                                fileName: "components/Accordion.jsx",
+                                lineNumber: 148,
+                                columnNumber: 40
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "components/Accordion.jsx",
+                            lineNumber: 147,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "components/Accordion.jsx",
+                    lineNumber: 142,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "components/Accordion.jsx",
+                lineNumber: 141,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_c = Accordion;
+exports.default = Accordion;
+var _c;
+$RefreshReg$(_c, "Accordion");
+
+  $parcel$ReactRefreshHelpers$2a47.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cr3QK":[function(require,module,exports) {
 module.exports = require("bcff738a0d50da5")(require("351b9febd104dfb").getBundleURL("fqV6O") + "About.6790014f.js" + "?" + Date.now()).catch((err)=>{
     delete module.bundle.cache[module.id];
     throw err;

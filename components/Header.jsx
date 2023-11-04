@@ -18,8 +18,8 @@ export default function Header() {
             <Link to='/about' className="">
             <li className="mr-8">About</li>
             </Link>
-            <Link to='/contact' className="">
-            <li className="mr-8">Contact</li>
+            <Link to='/support' className="">
+            <li className="mr-8">Support</li>
             </Link>
             <li className="item">Cart &nbsp;&nbsp;&nbsp; {useOnline()?"🟢":"🔴"}</li>
           </ul>

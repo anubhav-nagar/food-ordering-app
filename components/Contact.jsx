@@ -1,9 +1,14 @@
+import { useState } from "react";
+import Accordion from "./Accordion";
+
 const Contact = () => {
+  const [visibleSection, setVisibleSection] = useState("a1");
+  const [expandedButton, setExpandedButton] = useState("a1");
   return (
     <>
-      <div className="text-3xl pl-44 pt-40 bg-slate-100 h-screen w-screen">
-        <h4>Mail: anubhavnagar009@gmail.com</h4>
-        <h4>LinkedIn: anubhav-nagar</h4>
+      <div className="bg-slate-100 h-screen pt-10">
+        <h2 className="ml-4 text-xl font-bold mb-4">FAQs:</h2>
+        <Accordion visibleSection={visibleSection} setVisibleSection={setVisibleSection} expandedButton={expandedButton} setExpandedButton={setExpandedButton} />
       </div>
     </>
   );

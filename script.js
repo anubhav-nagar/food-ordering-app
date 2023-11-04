@@ -51,7 +51,7 @@ const appRouter = createBrowserRouter([
         element: <Suspense> <About/> </Suspense>
       },
       {
-        path: '/contact',
+        path: '/support',
         element: <Contact />
       }
     ]

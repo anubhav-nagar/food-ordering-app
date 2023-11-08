@@ -37568,7 +37568,7 @@ $RefreshReg$(_c, "Footer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/logo-new.png":"lF8Sk"}],"lF8Sk":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../images/logo-new.png":"lF8Sk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lF8Sk":[function(require,module,exports) {
 module.exports = require("2e24e2699c27547f").getBundleURL("fqV6O") + "logo-new.11d0db7e.png" + "?" + Date.now();
 
 },{"2e24e2699c27547f":"lgJ39"}]},["3yPwA","1xC6H","6rimH"], "6rimH", "parcelRequire10c2")

@@ -329,24 +329,16 @@ img, video {
   margin-top: 3rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
-}
-
-.mt-24 {
-  margin-top: 6rem;
-}
-
-.mt-7 {
-  margin-top: 1.75rem;
+.mt-36 {
+  margin-top: 9rem;
 }
 
 .mt-44 {
   margin-top: 11rem;
 }
 
-.mt-36 {
-  margin-top: 9rem;
+.mt-7 {
+  margin-top: 1.75rem;
 }
 
 .flex {
@@ -373,24 +365,16 @@ img, video {
   height: 2rem;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
-.h-96 {
-  height: 24rem;
-}
-
 .h-80 {
   height: 20rem;
 }
 
-.w-11\/12 {
-  width: 91.6667%;
+.h-screen {
+  height: 100vh;
 }
 
-.w-12 {
-  width: 3rem;
+.w-11\/12 {
+  width: 91.6667%;
 }
 
 .w-60 {
@@ -401,24 +385,8 @@ img, video {
   width: 18rem;
 }
 
-.w-24 {
-  width: 6rem;
-}
-
-.w-48 {
-  width: 12rem;
-}
-
-.w-64 {
-  width: 16rem;
-}
-
 .w-96 {
   width: 24rem;
-}
-
-.w-screen {
-  width: 100vw;
 }
 
 .flex-wrap {
@@ -468,19 +436,14 @@ img, video {
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
-}
-
 .bg-slate-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -491,8 +454,24 @@ img, video {
   padding: 1rem;
 }
 
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
 .pb-2 {
   padding-bottom: .5rem;
+}
+
+.pb-3 {
+  padding-bottom: .75rem;
+}
+
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
+.pl-12 {
+  padding-left: 3rem;
 }
 
 .pl-4 {
@@ -507,6 +486,10 @@ img, video {
   padding-left: 2rem;
 }
 
+.pr-72 {
+  padding-right: 18rem;
+}
+
 .pt-10 {
   padding-top: 2.5rem;
 }
@@ -517,70 +500,6 @@ img, video {
 
 .pt-2 {
   padding-top: .5rem;
-}
-
-.pl-12 {
-  padding-left: 3rem;
-}
-
-.pr-12 {
-  padding-right: 3rem;
-}
-
-.pr-20 {
-  padding-right: 5rem;
-}
-
-.pr-4 {
-  padding-right: 1rem;
-}
-
-.pr-40 {
-  padding-right: 10rem;
-}
-
-.pr-96 {
-  padding-right: 24rem;
-}
-
-.pr-80 {
-  padding-right: 20rem;
-}
-
-.pr-72 {
-  padding-right: 18rem;
-}
-
-.pb-4 {
-  padding-bottom: 1rem;
-}
-
-.pb-24 {
-  padding-bottom: 6rem;
-}
-
-.pb-28 {
-  padding-bottom: 7rem;
-}
-
-.pb-10 {
-  padding-bottom: 2.5rem;
-}
-
-.pb-8 {
-  padding-bottom: 2rem;
-}
-
-.pb-3 {
-  padding-bottom: .75rem;
-}
-
-.pt-44 {
-  padding-top: 11rem;
-}
-
-.pb-12 {
-  padding-bottom: 3rem;
 }
 
 .font-mono {
